@@ -1,8 +1,16 @@
 //////////////////////////////////////////////////////////////////////
 // Function 1 - Object Values ////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+// QUnit.test( "objectValues() : Should take an object and return its values in an array", function( assert ) {
+//     var objectOne = {a: "one", b: "two", ponies: "crayons", dingle: "dangle"};
+//     var objectTwo = {c: "three", d: "four", crayons: "ponies", dangle: "dingle"};
+//     assert.deepEqual(objectValues(objectOne), ["one","two","crayons","dangle"]);
+//     assert.deepEqual(objectValues(objectTwo), ["three","four","ponies","dingle"]);
+//   });
 function objectValues(object) {
+    var resuls = [];
+    for (var key in object)
+    results.push(object[key]);
     // code
 } 
 
