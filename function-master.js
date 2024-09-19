@@ -72,14 +72,30 @@ return string.charAt(0).toUpperCase() + string.slice(1);
 //     assert.equal(capitalizeAllWords("one two three four"), "One Two Three Four");
 //     assert.equal(capitalizeAllWords("please excuse my dear aunt sally"), "Please Excuse My Dear Aunt Sally");
 //   });
+// function capitalizeAllWords(string) {
+//     var splitWords = string.split('');
+//     var wordsCapitalized = [];
+//     for (let i = 0; i < splitWords.length; i++){
+//         var splitWord = splitWords[i];
+        
+//         var newWordsCapitalized = splitWord.charAt(0).toUpperCase() + splitWord.slice(1);
+//         wordsCapitalized.push(newWordsCapitalized);
+//     }
+// return newWordsCapitalized.join(' ');
+// }
+
 function capitalizeAllWords(string) {
-    var splitWords = string.split('');
-    var wordsCapitalized = [];
-    for (let i = 0; i < splitWords.length; i++){
-        var splitWord = splitWords[i];
-        wordsCapitalized[i] = splitWord.charAt(0).toUpperCase() + splitWord.slice(1);
+    var words = string.split('');
+var capitalizedWords = [];
+for (var i = 0; i < words.length; i++) {
+    var word = words[i];
+    var capitalizedWord = word.charAt(0).toUpperCase() + word.slice(1)
+    capitalizedWords.push(capitalizedWord);{
+       // return capitalizedWords.join(' ');
     }
-return wordsCapitalized.join(' ');
+    return capitalizedWords.join(' ');
+}
+//return capitalizedWords.join(' ');
 }
 
 //////////////////////////////////////////////////////////////////////
