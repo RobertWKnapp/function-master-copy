@@ -89,51 +89,85 @@ function capitalizeAllWords(string) {
 var capitalizedWords = [];
 for (var i = 0; i < words.length; i++) {
     var word = words[i];
+    // Capitalize the first letter and concatenate with the rest
     var capitalizedWord = word.charAt(0).toUpperCase() + word.slice(1)
-    capitalizedWords.push(capitalizedWord);{
-       // return capitalizedWords.join(' ');
+    // add the capitalized word to the array
+    capitalizedWords.push(capitalizedWord);
     }
+    // join the capialized words with a space.
     return capitalizedWords.join(' ');
 }
-//return capitalizedWords.join(' ');
-}
+
+console.log(capitalizeAllWords("one two three four"));
 
 //////////////////////////////////////////////////////////////////////
 // Function 7 - Welcome Message //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+   /* global  welcomeMessage*/
+//    QUnit.test("welcomeMessage() : Should take an object with a name property and return 'Welcome <Name>!'", function(assert){
+//     assert.equal(welcomeMessage({name: "bert"}), "Welcome Bert!");
+//     assert.equal(welcomeMessage({name: "Charlie"}), "Welcome Charlie!");
+//   });
 
 function welcomeMessage(object) {
-
+var name = object.name.charAt(0).toUpperCase() + object.name.slice(1);
+return `Welcome ${name}!`;
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 8 - Profile Info /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+    // /* global  profileInfo*/
+    // QUnit.test("profileInfo() : Should take an object with a name an a species and return '<Name> is a <Species>'", function(assert){
+    //     assert.equal(profileInfo({name: "jake", species: "dog"}), "Jake is a Dog");
+    //     assert.equal(profileInfo({name: "reggie", species: "dog"}), "Reggie is a Dog");
+    //   });
 function profileInfo(object) {
-
+var name = object.name.charAt(0).toUpperCase() + object.name.slice(1);
+var species = object.species.charAt(0).toUpperCase() + object.species.slice(1);
+return `${name} is a ${species}`;
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 9 - Maybe Noises /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+    // /* global  maybeNoises*/
+    // QUnit.test("maybeNoises() : Should take an object, if this object has a noises array return them as a string separated by a space, if there are no noises return 'there are no noises'", function(assert){
+    //     assert.equal(maybeNoises({noises:["bark", "woof", "squeak","growl"]}), "bark woof squeak growl");
+    //     assert.equal(maybeNoises({noises: []}), "there are no noises");
+    //     assert.equal(maybeNoises({}), "there are no noises");
+    //   });
 function maybeNoises(object) {
-
+if (Array.isArray(object.noises) && object.noises.length > 0) {
+    return object.noises.join(' ');
+}else {
+    return "there are no noises";
+}
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 10 - Has Words ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+//    /* global  hasWord*/
+//    QUnit.test("hasWord() : Should take a string of words and a word and return true if <word> is in <string of words>, otherwise return false.", function(assert){
+//     var data = "This is a super awesome string of words";
+//     assert.strictEqual(hasWord(data, "awesome"), true);
+//     assert.strictEqual(hasWord(data, "words"), true);
+//     assert.strictEqual(hasWord(data, "turtle"), false);
+//   });
 function hasWord(string, word) {
-
+var words = string.split(' ');
+return words.includes(word);
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 11 - Add Friend //////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+    // /* global addFriend */
+    // QUnit.test("addFriend() : Should take a name and an object and add the name to the object's friends array then return the object", function(assert){
+    //     assert.deepEqual(addFriend("lester", {friends:[]}), {friends:["lester"]});
+    //     assert.deepEqual(addFriend("jimmy", {friends:["bobby","jones"]}), {friends:["bobby", "jones", "jimmy"]});
+    //   });
 function addFriend(name, object) {
 
 }
