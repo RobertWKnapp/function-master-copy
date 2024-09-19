@@ -76,8 +76,8 @@ function capitalizeAllWords(string) {
     var splitWords = string.split('');
     var wordsCapitalized = [];
     for (let i = 0; i < splitWords.length; i++){
-        let splitWords = splitWords[i];
-        wordsCapitalized[i] = splitWords.charat(0).toUpperCase() + splitWords.slice(1);
+        var splitWord = splitWords[i];
+        wordsCapitalized[i] = splitWord.charAt(0).toUpperCase() + splitWord.slice(1);
     }
 return wordsCapitalized.join(' ');
 }
