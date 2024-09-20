@@ -206,7 +206,27 @@ return Array.isArray(object.friends) && object.friends.includes(name);
 //     assert.deepEqual(nonFriends("Sara", data), ["Bob","Liza"]);
 //   });
 function nonFriends(name, array) {
+    // var person = array.find(p => p.name === name);
+    var person;
+for (var i = 0; i < array.length; i++) {
+    if (array[i].name === name) {
+        person = array[i];
+        break; // Exit the loop once the person is found
+    }
+}
+    if (!person) return []; // Return empty array if name is not found
 
+    var friendsSet = new Set(person.friends);
+    var nonFriendsList = [];
+
+    for (let i = 0; i < array.length; i++) {
+        const otherPerson = array[i];
+        if (otherPerson.name !== name && !friendsSet.has(otherPerson.name)) {
+            nonFriendsList.push(otherPerson.name);
+        }
+    }
+
+    return nonFriendsList;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -229,9 +249,27 @@ return object;
 //////////////////////////////////////////////////////////////////////
 // Function 15 - Remove Properties ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+    /* global removeProperties */
+    // QUnit.test("removeProperties() : Should take an object and an array of strings. Should remove any properties on <object> that are listed in <array>", function(assert){
+    //     var data = {a: "one", b: "two", "hokey": false};
+    //     removeProperties(data, ["a","hokey"]);
+    //     assert.deepEqual(data, {b: "two"});
+  
+    //     var data = {a: "one", b: "two", "hokey": false};
+    //     removeProperties(data, ["b"])
+    //     assert.deepEqual(data, {a: "one", "hokey": false});
+  
+    //     var data = {a: "one", b: "two", hokey: false};
+    //     removeProperties(data, []);
+    //     assert.deepEqual(data, {a: "one", b: "two", "hokey": false});
+    //   });
 function removeProperties(object, array) {
-
+    for (var i = 0; i < array.length; i++) {
+        var key = array[i];
+        if (key in object) {
+            delete object[key];
+        }
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -245,7 +283,13 @@ function removeProperties(object, array) {
     //     assert.deepEqual(dedup(arrayTwo), ["hello", "world"]);
     //   });
 function dedup(array) {
-
+    let result = [];
+    for (let i = 0; i < array.length; i++) {
+        if (result.indexOf(array[i]) === -1) {
+            result.push(array[i]);
+        }
+    }
+    return result;
 }
 
 //////////////////////////////////////////////////////////////////////
